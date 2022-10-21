@@ -1,9 +1,14 @@
 name: Staging
 
 on:
-  pull_request:
-    branches:
-    - master
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test staging'  
 
 # This ensures that previous jobs for the PR are canceled when the PR is
 # updated.
