@@ -42,14 +42,6 @@ jobs:
           go get github.com/minio/minio
           go test -v --timeout 50m ./...
           
-      - name: Build on ${{ matrix.os }}
-        if: matrix.os == 'ubuntu-latest'
-        env:
-          CGO_ENABLED: 0
-          GO111MODULE: on
-        run: |
-          make
-          make test
   vulncheck:
     name: Analysis
     runs-on: ${{ matrix.os }}
